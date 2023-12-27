@@ -5,6 +5,7 @@ import getpass
 import subprocess
 os.system("clear")
 username = getpass.getuser()
+
 os.system("git pull")
 RED = '\033[1;91m' #
 WHITE = '\033[1;97m' #
@@ -18,9 +19,18 @@ MAGENTA = "\033[95m"
 CYAN = "\033[96m"
 color = [RED,GREEN,BLUE,MAGENTA,CYAN,ORANGE]
 rand = random.choice(color)
+def update_scr():
+    os.system("cd $HOME && rm -rf x_famework && git clone https://github.com/zaypaihtet/x_famework/ && cd x_famework $$ python3 main.py ")
+
 ver = open("./src/version")
 version =  ver.read()
 
+update = requests.get("https://raw.githubusercontent.com/zaypaihtet/x_famework/main/src/version").text
+if update == version:
+    pass
+else:
+    update_scr()
+    
 def banner():
     os.system("figlet X Framework | lolcat")
     print(f"""{BOLD}{rand}
@@ -68,7 +78,7 @@ def menu():
         elif option in ['banner']:
             banner()
         elif option in ['update','5']:
-            os.system("cd $HOME && rm -rf x_famework && git clone https://github.com/zaypaihtet/x_famework/ && cd x_famework $$ python3 main.py ")
+            update_scr()
         else:
             print(f"{RED}Wrong input...")
 
