@@ -12,8 +12,11 @@ MAGENTA = "\033[95m"
 CYAN = "\033[96m"
 color = [RED,GREEN,YELLOW,BLUE,MAGENTA,CYAN]
 rand = random.choice(color)
-version = open("./src/version", "r")
-
+a = requests.get("https://raw.githubusercontent.com/zaypaihtet/x_famework/main/src/version")
+if a.status_code == 200:
+    pass
+else:
+    print("You Can't Use That Framework")
 
 def banner():
     print(f"""{rand}__  __  _____                                            _    
@@ -23,7 +26,7 @@ def banner():
 /_/\_\ |_|  |_|  \__,_|_| |_| |_|\___| \_/\_/ \___/|_|  |_|\_\ 
           
           {GREEN}Author : {CYAN}X-Coder
-          {GREEN}Version :{CYAN}{version.read()}
+          {GREEN}Version :{CYAN}{a.text}
           """
 
     )
