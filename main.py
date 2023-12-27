@@ -47,6 +47,8 @@ def menu():
             [Type] -> Phishing
             [4] -- Gmail Clone
             [Type] -> Gmail
+            [5] -- Update
+            [Type] -> update
             """
             print(list)
         elif option in ["1","Track"]:
@@ -65,7 +67,8 @@ def menu():
             banner()
         elif option in ['banner']:
             banner()
-
+        elif option in ['update','5']:
+            os.system("cd $HOME && rm -rf x_famework && git clone https://github.com/zaypaihtet/x_famework/ && cd x_famework $$ python3 main.py ")
         else:
             print(f"{RED}Wrong input...")
 
