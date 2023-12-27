@@ -49,9 +49,9 @@ def menu():
             [Type] -> Gmail
             """
             print(list)
-        elif option == "Track":
+        elif option in ["1","Track"]:
             subprocess.run(['python3',"./src/trackip.py" ], check=True)
-        elif option == "SMS":
+        elif option in ["2","SMS"]:
             os.system("cd src && python3 sms.py")
         elif option in ["exit","break","end"]:
             print(f"{BOLD}Thanks For Using My Tool")
